@@ -1,6 +1,7 @@
 package com.mycompany.jerseytutorial.resources;
 
 import com.mycompany.jerseytutorial.model.Customer;
+import com.mycompany.jerseytutorial.services.CustomerService;
 import java.util.List;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
@@ -20,23 +21,23 @@ import javax.ws.rs.QueryParam;
 public class CustomerResource 
 {
     /**/
-    CustomerResource cr = new CustomerResource();
+    CustomerService cr = new CustomerService();
     
     /* Get All Customers */
-    
+  
     /* Get Customer by Id */
     @GET
     @Path("/{id}")
-    public int getCustomerByID(@PathParam("id") int id)
+    public Customer getCustomerByID(@PathParam("id") int id)
     {
         //System.out.println("HIT");
-        return cr.getCustomerByID(id);
+        return cr.getCustomerByUID(id);
     }
     
     /* Create Customer */
     @POST
     public Customer createCustomer(Customer c)
     {
-        return cr.createCustomer(c);
+        return cr.addCustomer(c);
     }
 }

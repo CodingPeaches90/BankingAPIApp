@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mycompany.resource;
+package com.mycompany.jerseytutorial.resources;
 
-import com.mycompany.model.Account;
-import com.mycompany.model.Customer;
-import com.mycompany.service.AccountService;
+import com.mycompany.jerseytutorial.model.Account;
+import com.mycompany.jerseytutorial.model.Customer;
+import com.mycompany.jerseytutorial.services.AccountService;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;

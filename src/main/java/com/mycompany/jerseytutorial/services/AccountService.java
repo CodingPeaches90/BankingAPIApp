@@ -1,6 +1,6 @@
-package com.mycompany.service;
+package com.mycompany.jerseytutorial.services;
 
-import com.mycompany.model.Account;
+import com.mycompany.jerseytutorial.model.Account;
 import java.util.ArrayList;
 import java.util.List;
 

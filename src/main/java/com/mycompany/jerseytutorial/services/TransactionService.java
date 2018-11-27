@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mycompany.service;
+package com.mycompany.jerseytutorial.services;
 
-import com.mycompany.model.Transaction;
+import com.mycompany.jerseytutorial.model.Transaction;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.ArrayList;

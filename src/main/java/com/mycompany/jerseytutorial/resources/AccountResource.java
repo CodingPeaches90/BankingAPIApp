@@ -30,16 +30,16 @@ public class AccountResource
     
     /* Get Account by AccNo */
     @GET
-    @Path("/{id}")
-    public Account getAccountByNo(@PathParam("id") int id)
+    @Path("/accountNumber/{accNo}")
+    public Account getAccountByNo(@PathParam("accNo") int accNo)
     {
         System.out.println("HIT");
-        return ar.getAccountByNumber(id);
+        return ar.getAccountByNumber(accNo);
     }
     
     /* Get Account by UID */
     @GET
-    @Path("/{uid}")
+    @Path("uid/{uid}")
     public Account getAccountByUID(@PathParam("uid") int uid)
     {
         System.out.println("HIT");

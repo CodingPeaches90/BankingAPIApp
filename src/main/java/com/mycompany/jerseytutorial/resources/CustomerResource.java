@@ -30,7 +30,7 @@ public class CustomerResource
     public int getCustomerByID(@PathParam("id") int id)
     {
         //System.out.println("HIT");
-        return id;
+        return cr.getCustomerByID(id);
     }
     
     /* Create Customer */

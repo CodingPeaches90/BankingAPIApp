@@ -6,11 +6,13 @@
 package com.mycompany.jerseytutorial.model;
 
 import java.util.Date;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author chris_xtx7ln9
  */
+@XmlRootElement
 public class Transaction {
     
     private int transactionID;

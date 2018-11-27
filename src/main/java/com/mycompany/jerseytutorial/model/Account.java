@@ -5,11 +5,13 @@
  */
 package com.mycompany.jerseytutorial.model;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
 /**
  *
  * @author chris_xtx7ln9
  */
-
+@XmlRootElement
 public class Account {
     
     private int accountNo;

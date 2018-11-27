@@ -6,6 +6,7 @@
 package com.mycompany.jerseytutorial.model;
 
 import java.util.Date;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
@@ -13,6 +14,7 @@ import java.util.Date;
  * 
  * INT CustomerAccountUID is the ID of the Account
  */
+@XmlRootElement
 public class Customer 
 {
     private String customerFName;

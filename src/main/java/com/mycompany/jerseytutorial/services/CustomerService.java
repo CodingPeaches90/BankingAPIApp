@@ -25,6 +25,9 @@ public class CustomerService
             Customer c1 = new Customer("Jordan","May",  "BollyWood", "w234", 1234 , 1);
             Customer c2 = new Customer("Christopher","Kambayi",  "Santry", "e344", 342 , 2);
             
+            customerList.add(c1);
+            customerList.add(c2);
+            
             stop = false;
         }
     }
@@ -32,8 +35,15 @@ public class CustomerService
     /* Get Customer By UID */
     public Customer getCustomerByUID(int UID)
     {
-        System.out.println("HIT");
-        return customerList.get(UID);
+        Customer cu = new Customer();
+        for(Customer c : customerList)
+        {
+            if(c.getCustomerUID() == UID)
+            {
+                cu = c;
+            }
+        }
+        return cu;
     }
     
     /* Create Customer */

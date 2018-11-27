@@ -12,7 +12,7 @@ import java.util.List;
 
 public class AccountService{ 
     
-    private List<Account> accountDB = new ArrayList<>();
+    private static List<Account> accountDB = new ArrayList<>();
     public static boolean init = true;
     
     public AccountService() {

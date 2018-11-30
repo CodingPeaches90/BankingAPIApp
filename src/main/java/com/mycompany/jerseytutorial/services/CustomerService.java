@@ -1,9 +1,7 @@
 package com.mycompany.jerseytutorial.services;
 
-import com.mycompany.jerseytutorial.model.Account;
+import com.mycompany.jerseytutorial.database.Database;
 import com.mycompany.jerseytutorial.model.Customer;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -14,29 +12,18 @@ import java.util.List;
 
 public class CustomerService 
 {
+        /*database object  */
+    Database db = new Database();
     
-    private static List<Customer> customerList = new ArrayList<>();
-    private static boolean stop = true;
-    
-    public CustomerService()
-    {
-        while(stop)
-        {
-            Customer c1 = new Customer("Jordan","May",  "BollyWood", "w234", 1234 , 1);
-            Customer c2 = new Customer("Christopher","Kambayi",  "Santry", "e344", 342 , 2);
-            
-            customerList.add(c1);
-            customerList.add(c2);
-            
-            stop = false;
-        }
+    public CustomerService(){
+        
     }
     
     /* Get Customer By UID */
     public Customer getCustomerByUID(int UID)
     {
         Customer cu = new Customer();
-        for(Customer c : customerList)
+        for(Customer c : db.getCustomerTB())
         {
             if(c.getCustomerUID() == UID)
             {
@@ -49,8 +36,9 @@ public class CustomerService
     /* Create Customer */
     public Customer addCustomer(Customer c)
     {
-        c.setCustomerUID(customerList.size() + 1);
-        customerList.add(c);
+        c.setCustomerUID(db.getCustomerTB().size() + 1);
+        //customerList.add(c);
+        db.addCustomer(c);
         return c;
     }
 }

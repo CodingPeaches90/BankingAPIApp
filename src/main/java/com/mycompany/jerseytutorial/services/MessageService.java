@@ -13,6 +13,7 @@ import java.util.List;
  *
  * @author manueltovaizquierdo
  */
+
 public class MessageService {
     public static List<Message> list = new ArrayList<>();
     public static boolean init = true;

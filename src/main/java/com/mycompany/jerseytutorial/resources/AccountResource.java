@@ -6,7 +6,6 @@
 package com.mycompany.jerseytutorial.resources;
 
 import com.mycompany.jerseytutorial.model.Account;
-import com.mycompany.jerseytutorial.model.Customer;
 import com.mycompany.jerseytutorial.services.AccountService;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
@@ -15,34 +14,46 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.QueryParam;
+
 /**
  *
  * @author Christopher Kambayi
  */
+
 @Path("/account")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
-public class AccountResource 
-{
+public class AccountResource {
     /**/
     AccountService ar = new AccountService();
     
     /* Get Account by AccNo */
     @GET
     @Path("/accountNumber/{accNo}")
-    public Account getAccountByNo(@PathParam("accNo") int accNo)
-    {
+    public Account getAccountByNo(@PathParam("accNo") int accNo){
         System.out.println("HIT");
         return ar.getAccountByNumber(accNo);
     }
     
     /* Get Account by UID */
     @GET
-    @Path("uid/{uid}")
-    public Account getAccountByUID(@PathParam("uid") int uid)
-    {
+    @Path("/uid/{uid}")
+    public Account getAccountByUID(@PathParam("uid") int uid){
         System.out.println("HIT");
         return ar.getAccountByUID(uid);
+    }
+    
+    /* Get Account balance */
+    @GET
+    @Path("/balance/{accNo}")
+    public float getAccountBalance(@PathParam("accNo") int accNo){
+        System.out.println("HIT");
+        return ar.getAccountBalance(accNo);
+    }
+    
+    /* Create Account */
+    @POST
+    public Account createCustomer(Account c){
+        return ar.addAccount(c);
     }
 }

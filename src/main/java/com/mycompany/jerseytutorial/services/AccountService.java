@@ -1,5 +1,6 @@
 package com.mycompany.jerseytutorial.services;
 
+import com.mycompany.jerseytutorial.database.Database;
 import com.mycompany.jerseytutorial.model.Account;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,39 +13,28 @@ import java.util.List;
 
 public class AccountService{ 
     
+    /* Create mock DB*/
     private static List<Account> accountDB = new ArrayList<>();
     public static boolean init = true;
     
+        /*database object  */
+    Database db = new Database();
+    
+    /* Constructor */
     public AccountService() {
-        if (init) 
-        {
-         
-            Account a1 = new Account(123, 321, "Current", (float)43000);
-            Account a2 = new Account(124, 322, "Current", (float)45000);
-            Account a3 = new Account(125, 323, "Savings", (float)155000);
-            Account a4 = new Account(183, 921, "Savings", (float)4000);
-            Account a5 = new Account(126, 521, "Loan", (float)-4000);
-            Account a6 = new Account(627, 221, "Loan", (float)-254954);
-
-            accountDB.add(a1);
-            accountDB.add(a2);
-            accountDB.add(a3);
-            accountDB.add(a4);
-            accountDB.add(a5);
-            accountDB.add(a6);
-
-            init = false;
-        }
+        
     }
-    
+     
+    /* Get all accounts */
     public List<Account> getAllAccounts(){
-        return this.accountDB;
+        return db.getAccountTB();
     }
     
+    /* Get Account by AccountNumber */
     public Account getAccountByNumber(int accNo){
         Account acc = new Account();
         
-        for (Account q: getAllAccounts()) {
+        for (Account q: db.getAccountTB()) {
             if (q.getAccountNo() == (accNo)){
                acc = q;
             }
@@ -52,10 +42,11 @@ public class AccountService{
         return acc;
     }
     
+    /* Get Account by UID */
     public Account getAccountByUID(int uid){
         Account acc = new Account();
         
-        for (Account q: getAllAccounts()) {
+        for (Account q: db.getAccountTB()) {
             if (q.getCustomerID() == (uid)){
                acc = q;
             }
@@ -63,14 +54,21 @@ public class AccountService{
         return acc;
     }
     
-    public int getAccountBalance(int accNo){
+    /* Get Account balance */
+    public float getAccountBalance(int accNo){
         Account acc = new Account();
         
-        for (Account q: getAllAccounts()) {
+        for (Account q: db.getAccountTB()) {
             if (q.getAccountNo() == (accNo)){
                acc = q;
             }
         }
-        return 0;
+        return acc.getBalance();
+    }
+    
+    /* Create Account */
+    public Account addAccount(Account ac){
+        db.addAccount(ac);
+        return ac;
     }
 }

@@ -46,14 +46,32 @@ public class AccountResource {
     /* Get Account balance */
     @GET
     @Path("/balance/{accNo}")
-    public float getAccountBalance(@PathParam("accNo") int accNo){
-        System.out.println("HIT");
-        return ar.getAccountBalance(accNo);
+    public void getAccountBalance(@PathParam("accNo") int accNo){
+        float bal =  ar.getAccountBalance(accNo);
+        System.out.println("Balance for "+accNo+" is = "+ bal);
     }
     
     /* Create Account */
     @POST
-    public Account createCustomer(Account c){
-        return ar.addAccount(c);
+    @Path("/create")
+    public void createAccount(Account c){
+        if(ar.addAccount(c)){
+            System.out.println("Success: Account created!");
+        }
+        else{
+            System.out.println("FAIL: Account not created!");
+        }
+    }
+    
+    /* Create Account */
+    @POST
+    @Path("/delete")
+    public void deleteAccount(Account c){
+        if(ar.deleteAccount(c)){
+            System.out.println("Success: Account deleted");
+        }
+        else{
+            System.out.println("FAIL: Account not deleted!");
+        }
     }
 }

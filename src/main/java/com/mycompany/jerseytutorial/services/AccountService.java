@@ -2,6 +2,7 @@ package com.mycompany.jerseytutorial.services;
 
 import com.mycompany.jerseytutorial.database.Database;
 import com.mycompany.jerseytutorial.model.Account;
+import com.mycompany.jerseytutorial.model.Customer;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,11 +14,7 @@ import java.util.List;
 
 public class AccountService{ 
     
-    /* Create mock DB*/
-    private static List<Account> accountDB = new ArrayList<>();
-    public static boolean init = true;
-    
-        /*database object  */
+    /*database object  */
     Database db = new Database();
     
     /* Constructor */
@@ -60,15 +57,29 @@ public class AccountService{
         
         for (Account q: db.getAccountTB()) {
             if (q.getAccountNo() == (accNo)){
-               acc = q;
+               return q.getBalance();
             }
         }
-        return acc.getBalance();
+        return 0;
     }
     
     /* Create Account */
-    public Account addAccount(Account ac){
+    public boolean addAccount(Account ac){
         db.addAccount(ac);
-        return ac;
+        return false;
+    }
+    
+    /* Create Account */
+    public boolean addAccountByCustomer(Customer c){
+        Account tmp = new Account();
+        tmp.setCustomerID(c.getCustomerUID());
+        db.addAccount(tmp);
+        return false;
+    }
+    
+    /* Delete Account */
+    public boolean deleteAccount(Account ac){
+        
+        return db.deleteAccount(ac);
     }
 }

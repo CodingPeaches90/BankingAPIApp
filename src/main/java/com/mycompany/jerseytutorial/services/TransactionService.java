@@ -19,17 +19,18 @@ import java.util.List;
  */
 public class TransactionService {
     
-        /*database object  */
+    /*database object  */
     Database db = new Database();
     
     public TransactionService() {
     
     } 
-    
+    /* Get ALL transactions in system*/
     public List<Transaction> getAllTransactions(){
         return db.getTransactionTB();
     }
     
+    /* Get transactions by account number */
     public ArrayList<Transaction> getTransactionsByAcc(int accNo){
         ArrayList <Transaction> statement =  new ArrayList<>();
         
@@ -41,6 +42,31 @@ public class TransactionService {
         return statement;
     }
     
+    /* Get set up Direct Debits by account number */
+    public ArrayList<Transaction> getDirectDebit(int accNo){
+        ArrayList <Transaction> directDebits =  new ArrayList<>();
+        
+        for (Transaction t: db.getTransactionTB()) {
+            if((t.getTransactionFrom() == (accNo)) || (t.getType().equals("Direct Debit"))){
+               directDebits.add(t);
+            }
+        }
+        return directDebits;
+    }
+    
+    /* Get set up Direct Debits by account number */
+    public ArrayList<Transaction> getMobileTopUp(int accNo){
+        ArrayList <Transaction> topup =  new ArrayList<>();
+        
+        for (Transaction t: db.getTransactionTB()) {
+            if((t.getTransactionFrom() == (accNo)) || (t.getType().equals("Mobile TopUp"))){
+               topup.add(t);
+            }
+        }
+        return topup;
+    }
+    
+    /* Get transactions by account number and month*/
     public ArrayList<Transaction> getTransactionsByAcc(int accNo, int month){
         ArrayList <Transaction> statement =  new ArrayList<>();
         
@@ -59,11 +85,21 @@ public class TransactionService {
         return statement;
     }
     
-     /* Create Transaction */
-    public Transaction addTransaction(Transaction ac)
-    {
-        ac.setTransactionID(db.getTransactionTB().size() + 1);
-        db.addTransaction(ac);
-        return ac;
+    /* Create Transaction */
+    public boolean addTransaction(Transaction ac){
+        
+        return db.addTransaction(ac);
+    }
+    
+    /* Create Direct Debit */
+    public boolean addDirectDebit(Transaction dd){
+        dd.setType("Direct Debit");
+        return db.addTransaction(dd);
+    }
+    
+    /* Create Mobile Top Up */
+    public boolean addMobileTopUp(Transaction tt){
+        tt.setType("Mobile TopUp");
+        return db.addTransaction(tt);
     }
 }

@@ -12,7 +12,7 @@ import java.util.List;
 
 public class CustomerService 
 {
-        /*database object  */
+    /*database object  */
     Database db = new Database();
     
     public CustomerService(){
@@ -20,8 +20,7 @@ public class CustomerService
     }
     
     /* Get Customer By UID */
-    public Customer getCustomerByUID(int UID)
-    {
+    public Customer getCustomerByUID(int UID){
         Customer cu = new Customer();
         for(Customer c : db.getCustomerTB())
         {
@@ -34,11 +33,20 @@ public class CustomerService
     }
     
     /* Create Customer */
-    public Customer addCustomer(Customer c)
-    {
-        c.setCustomerUID(db.getCustomerTB().size() + 1);
-        //customerList.add(c);
+    public boolean addCustomer(Customer c){
         db.addCustomer(c);
-        return c;
+        return true;
+    }
+    
+    /* Delete Customer */
+    public boolean deleteCustomer(Customer c){
+        //Delete customer and account with UID
+        return db.deleteCustomer(c);
+    }
+    
+    /* Update Customer Details */
+    
+    public boolean updateCustomerDetails(Customer c){   
+        return db.updateCustomer(c);
     }
 }

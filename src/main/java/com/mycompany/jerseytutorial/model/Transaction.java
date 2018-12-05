@@ -12,6 +12,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  *
  * @author chris_xtx7ln9
  */
+
 @XmlRootElement
 public class Transaction {
     
@@ -21,8 +22,12 @@ public class Transaction {
     private int transactionTo;
     private long amount;
     private String message;
+    private String type;
+    private String phNo;
+    private Date debitDate;
 
     public Transaction() {
+        this.transactionDate = new Date();
     }
 
     public Transaction(int transactionID, Date transactionDate, int transactionFrom, int transactionTo, long amount, String message) {
@@ -80,5 +85,29 @@ public class Transaction {
 
     public void setMessage(String message) {
         this.message = message;
+    }  
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getPhNo() {
+        return phNo;
+    }
+
+    public void setPhNo(String phNo) {
+        this.phNo = phNo;
+    }
+
+    public Date getDebitDate() {
+        return debitDate;
+    }
+
+    public void setDebitDate(Date debitDate) {
+        this.debitDate = debitDate;
     }  
 }

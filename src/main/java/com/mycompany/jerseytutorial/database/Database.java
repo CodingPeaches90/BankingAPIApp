@@ -16,6 +16,7 @@ import java.util.List;
  *
  * @author chris_xtx7ln9
  */
+
 public class Database {
     
     private static List<Customer> customerTB = new ArrayList<>(); 
@@ -26,8 +27,8 @@ public class Database {
 
     public Database() {
         if(init){
-            Customer c1 = new Customer("Jordan","May",  "BollyWood", "w234", 1234 , 1);
-            Customer c2 = new Customer("Christopher","Kambayi",  "Santry", "e344", 342 , 2);
+            Customer c1 = new Customer("Jordan", "May", "BollyWood", "w234", 1234 , 1);
+            Customer c2 = new Customer("Christopher", "Kambayi", "Santry", "e344", 342 , 2);
 
             customerTB.add(c1);
             customerTB.add(c2);
@@ -46,18 +47,18 @@ public class Database {
             accountTB.add(a5);
             accountTB.add(a6);
 
-            Transaction t1 = new Transaction(01, new Date(18/11/1), 123, 627, (long)444.4, "Pizza");
-            Transaction t2 = new Transaction(01, new Date(18/11/2), 124, 126, (long)444.4, "Save");
-            Transaction t3 = new Transaction(03, new Date(18/11/13), 125, 183, (long)444.4, "Thanks");
-            Transaction t4 = new Transaction(04, new Date(18/11/4), 183, 125, (long)444.4, "Merci");
-            Transaction t5 = new Transaction(05, new Date(18/11/15), 126, 124, (long)444.4, "Lol");
-            Transaction t6 = new Transaction(06, new Date(18/11/6), 627, 123, (long)444.4, "Pimp");
-            Transaction t7 = new Transaction(07, new Date(18/11/6), 123, 125, (long)444.4, "Money");
-            Transaction t8 = new Transaction(8, new Date(18/11/7), 124, 123, (long)444.4, "Piggy bank");
-            Transaction t9 = new Transaction(9, new Date(18/11/11), 125, 627, (long)444.4, "I owe u");
-            Transaction t10 = new Transaction(10, new Date(18/11/8), 183, 126, (long)444.4, "Money");
-            Transaction t11 = new Transaction(11, new Date(18/11/9), 126, 183, (long)444.4, "Money");
-            Transaction t12 = new Transaction(12, new Date(18/11/9), 627, 124, (long)444.4, "Money");
+            Transaction t1 = new Transaction(01, new Date(2018,11,1), 123, 627, (long)444.12, "Pizza");
+            Transaction t2 = new Transaction(01, new Date(2018,11,2), 124, 126, (long)4414.09, "Save");
+            Transaction t3 = new Transaction(03, new Date(2018,11,13), 125, 183, (long)1444.24, "Thanks");
+            Transaction t4 = new Transaction(04, new Date(2018,11,4), 183, 125, (long)34.34, "Merci");
+            Transaction t5 = new Transaction(05, new Date(2018,11,15), 126, 124, (long)544.74, "Lol");
+            Transaction t6 = new Transaction(06, new Date(2018,11,6), 627, 123, (long)474.04, "Pimp");
+            Transaction t7 = new Transaction(07, new Date(2018,11,6), 123, 125, (long)11444.02, "Money");
+            Transaction t8 = new Transaction(8, new Date(2018,11,7), 124, 123, (long)5444.3, "Piggy bank");
+            Transaction t9 = new Transaction(9, new Date(2018,11,11), 125, 627, (long)7444.5, "I owe u");
+            Transaction t10 = new Transaction(10, new Date(2018,11,8), 183, 126, (long)54.6, "Money");
+            Transaction t11 = new Transaction(11, new Date(2018,11,9), 126, 183, (long)4144.7, "Money");
+            Transaction t12 = new Transaction(12, new Date(2018,11,9), 627, 124, (long)4044.9, "Money");
 
             transactionTB.add(t1);
             transactionTB.add(t2);
@@ -89,6 +90,7 @@ public class Database {
     }
     
     public static boolean addCustomer(Customer c){
+        c.setCustomerUID(customerTB.size() + 1);
         customerTB.add(c);
         System.out.println("Size= " + customerTB.size());
         return true;
@@ -101,8 +103,50 @@ public class Database {
     }
     
     public static boolean addTransaction(Transaction t){
+        t.setTransactionID(transactionTB.size() + 1);
         transactionTB.add(t);
         System.out.println("Size= " + transactionTB.size());
         return true;
+    }
+    
+    /* Update Customer details on DB */
+    public static boolean updateCustomer(Customer t){
+        int index = 0;
+        for(Customer tempc : customerTB){  
+            if(t.getCustomerUID() == tempc.getCustomerUID()){
+                customerTB.remove(index);
+                customerTB.add(t);
+                System.out.println("Size= " + customerTB.size());
+                return true;
+            }
+            index++;
+        }
+        return false;
+    }
+    
+    /* Delete Customer from DB */
+    public static boolean deleteCustomer(Customer t){
+        int index = 0;
+        for(Customer tempc : customerTB){  
+            if(t.getCustomerUID() == tempc.getCustomerUID()){
+                customerTB.remove(index);
+                return true;
+            }
+            index++;
+        }
+        return false;
+    }
+    
+    /* Delete Account from DB*/
+    public static boolean deleteAccount(Account a){
+        int index = 0;
+        for(Account tempa : accountTB){  
+            if(a.getAccountNo() == tempa.getAccountNo()){
+                accountTB.remove(index);
+                return true;
+            }
+            index++;
+        }
+        return false;
     }
 }

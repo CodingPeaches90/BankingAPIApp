@@ -201,4 +201,59 @@ public class Database {
         }
         return false;
     }
+    
+    /**
+    * Lodge
+    */
+    public static boolean lodge(int acc, int amount){
+        int index = 0;
+        for(Account tempA : accountTB){  
+            if(acc == tempA.getAccountNo()){
+                tempA.setBalance(tempA.getBalance() + amount);
+                accountTB.set(index, tempA);
+                
+                Transaction tempT = new Transaction();
+                tempT.setTransactionTo(acc);
+                tempT.setAmount(amount);
+                //tempT.setMessage("Lodgement");
+                
+                addTransaction(tempT);
+                return true;
+            }
+            index++;
+        }
+        return false;
+    }
+    
+    /**
+    * Withdraw
+    */
+    public static boolean withdraw(int acc, int amount){
+        int index = 0;
+        for(Account tempA : accountTB){  
+            if(acc == tempA.getAccountNo()){
+                tempA.setBalance(tempA.getBalance() - amount);
+                accountTB.set(index, tempA);
+                
+                Transaction tempT = new Transaction();
+                tempT.setTransactionFrom(acc);
+                tempT.setAmount(amount);
+                //tempT.setMessage("Withdraw");
+                
+                addTransaction(tempT);
+                return true;
+            }
+            index++;
+        }
+        return false;
+    }
+    
+    /**
+    * Transfer
+    */
+    public static boolean transfer(int accFrom, int accTo, int amount){
+        withdraw(accFrom, amount);
+        lodge(accTo, amount);
+        return false;
+    }
 }

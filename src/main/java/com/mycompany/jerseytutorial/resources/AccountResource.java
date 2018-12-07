@@ -88,4 +88,46 @@ public class AccountResource {
             System.out.println("FAIL: Account not deleted!");
         }
     }
+    
+    /**
+    * Lodge
+    */
+    @POST
+    @Path("/lodge/{accNo}/{amount}")
+    public void lodge(@PathParam("accNo") int accNo, @PathParam("amount") int amount){
+        if(as.lodge(accNo, amount)){
+            System.out.println("Lodged " + amount+" To: " + accNo);
+        }
+        else{
+            System.out.println("FAIL: Lodgement unsuccessful");
+        }
+    }
+    
+    /**
+    * Withdraw
+    */
+    @POST
+    @Path("/withdraw/{accNo}/{amount}")
+    public void withdraw(@PathParam("accNo") int accNo, @PathParam("amount") int amount){
+        if(as.withdraw(accNo, amount)){
+            System.out.println("Withdrew " + amount+ " From: "+ accNo);
+        }
+        else{
+            System.out.println("FAIL: Withdraw unsuccessful");
+        }
+    }
+    
+    /**
+    * Transfer
+    */
+    @POST
+    @Path("/transfer/{accFrom}/{accTo}/{amount}")
+    public void transfer(@PathParam("accNo") int accFrom, @PathParam("accNo") int accTo, @PathParam("amount") int amount){
+        if(as.transfer(accFrom, accTo, amount)){
+            System.out.println("Transfered " + amount+ " from "+ accFrom + " To" + accTo);
+        }
+        else{
+            System.out.println("FAIL: Transfer unsuccessful");
+        }
+    }
 }

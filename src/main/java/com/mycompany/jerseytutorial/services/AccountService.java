@@ -94,4 +94,22 @@ public class AccountService{
         
         return db.deleteAccount(ac);
     }
+    
+    /* Delete Account */
+    public boolean withdraw(int acc, int amount){
+        
+        return db.withdraw(acc, amount);
+    }
+    
+    /* Delete Account */
+    public boolean lodge(int acc, int amount){
+        
+        return db.lodge(acc, amount);
+    }
+    
+    /* Delete Account */
+    public boolean transfer(int accFrom, int accTo, int amount){
+        
+        return db.transfer(accFrom, accTo, amount);
+    }
 }

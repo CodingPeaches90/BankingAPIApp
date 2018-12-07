@@ -45,10 +45,10 @@ public class CustomerResource{
     @Produces(MediaType.APPLICATION_JSON)
     public void createCustomer(Customer c){
         if(cs.addCustomer(c) && as.addAccountByCustomer(c)){
-            System.out.println("Customer created successfully");
+            System.out.println("Customer + Account created successfully");
         }
         else{
-            System.out.println("FAIL: Customer not created!");
+            System.out.println("FAIL: Customer + Account not created!");
         }
     }
     
@@ -81,6 +81,5 @@ public class CustomerResource{
         else{
             System.out.println("FAIL: Customer no deleted!");
         }
-        
     }
 }

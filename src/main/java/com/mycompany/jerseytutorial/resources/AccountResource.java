@@ -28,7 +28,7 @@ public class AccountResource {
     /**
     * Account service
     */
-    AccountService ar = new AccountService();
+    AccountService as = new AccountService();
     
     /**
     * Get Account by AccNo
@@ -37,7 +37,7 @@ public class AccountResource {
     @Path("/accountNumber/{accNo}")
     public Account getAccountByNo(@PathParam("accNo") int accNo){
         System.out.println("HIT");
-        return ar.getAccountByNumber(accNo);
+        return as.getAccountByNumber(accNo);
     }
     
     /**
@@ -47,7 +47,7 @@ public class AccountResource {
     @Path("/uid/{uid}")
     public Account getAccountByUID(@PathParam("uid") int uid){
         System.out.println("HIT");
-        return ar.getAccountByUID(uid);
+        return as.getAccountByUID(uid);
     }
     
     /**
@@ -55,9 +55,10 @@ public class AccountResource {
     */
     @GET
     @Path("/balance/{accNo}")
-    public void getAccountBalance(@PathParam("accNo") int accNo){
-        float bal =  ar.getAccountBalance(accNo);
+    public float getAccountBalance(@PathParam("accNo") int accNo){
+        float bal =  as.getAccountBalance(accNo);
         System.out.println("Balance for "+accNo+" is = "+ bal);
+        return bal;
     }
     
     /**
@@ -66,7 +67,7 @@ public class AccountResource {
     @POST
     @Path("/create")
     public void createAccount(Account c){
-        if(ar.addAccount(c)){
+        if(as.addAccount(c)){
             System.out.println("Success: Account created!");
         }
         else{
@@ -80,7 +81,7 @@ public class AccountResource {
     @DELETE
     @Path("/delete")
     public void deleteAccount(Account c){
-        if(ar.deleteAccount(c)){
+        if(as.deleteAccount(c)){
             System.out.println("Success: Account deleted");
         }
         else{

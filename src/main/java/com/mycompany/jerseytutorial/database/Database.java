@@ -125,8 +125,8 @@ public class Database {
     */
     public static boolean addAccount(Account a){
         int before = accountTB.size();
+        a.setAccountNo(before + 1);
         accountTB.add(a);
-        System.out.println("Size= " + accountTB.size());
         int after = customerTB.size();
         
         if(after > before){

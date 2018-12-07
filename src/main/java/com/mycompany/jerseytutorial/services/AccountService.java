@@ -53,8 +53,7 @@ public class AccountService{
     
     /* Get Account balance */
     public float getAccountBalance(int accNo){
-        Account acc = new Account();
-        
+
         for (Account q: db.getAccountTB()) {
             if (q.getAccountNo() == (accNo)){
                return q.getBalance();
@@ -84,6 +83,7 @@ public class AccountService{
         db.addAccount(tmp);
         int after = db.getAccountTB().size();
         if(after > before){
+            System.out.println("Account by Customer Success");
             return true;
         }
         return false;

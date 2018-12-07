@@ -122,7 +122,7 @@ public class AccountResource {
     */
     @POST
     @Path("/transfer/{accFrom}/{accTo}/{amount}")
-    public void transfer(@PathParam("accNo") int accFrom, @PathParam("accNo") int accTo, @PathParam("amount") int amount){
+    public void transfer(@PathParam("accFrom") int accFrom, @PathParam("accTo") int accTo, @PathParam("amount") int amount){
         if(as.transfer(accFrom, accTo, amount)){
             System.out.println("Transfered " + amount+ " from "+ accFrom + " To" + accTo);
         }

@@ -4,6 +4,7 @@ import com.mycompany.jerseytutorial.model.Customer;
 import com.mycompany.jerseytutorial.services.AccountService;
 import com.mycompany.jerseytutorial.services.CustomerService;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import static javax.ws.rs.HttpMethod.PUT;
 import javax.ws.rs.POST;
@@ -69,7 +70,7 @@ public class CustomerResource{
     /**
     * Delete Customer
     */
-    @POST
+    @DELETE
     @Path("/delete")
     @Produces(MediaType.APPLICATION_JSON)
     public void deleteCustomer(Customer c){

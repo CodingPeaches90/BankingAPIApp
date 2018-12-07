@@ -104,10 +104,12 @@ public class Database {
     * Method to add Customer to Customer Database
     */
     public static boolean addCustomer(Customer c){
+        System.out.println("Before,Size= " + customerTB.size());
         int before = customerTB.size();
+        
         c.setCustomerUID(customerTB.size() + 1);
         customerTB.add(c);
-        System.out.println("Size= " + customerTB.size());
+        System.out.println("After, Size= " + customerTB.size());
         int after = customerTB.size();
         
         if(after > before){

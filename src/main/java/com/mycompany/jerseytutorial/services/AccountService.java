@@ -65,15 +65,27 @@ public class AccountService{
     
     /* Create Account */
     public boolean addAccount(Account ac){
+        int before = db.getAccountTB().size();
         db.addAccount(ac);
+        int after = db.getAccountTB().size();
+        
+        if(after > before){
+            return true;
+        }
         return false;
     }
     
     /* Create Account */
     public boolean addAccountByCustomer(Customer c){
+        int before = db.getAccountTB().size();
         Account tmp = new Account();
         tmp.setCustomerID(c.getCustomerUID());
+        tmp.setAccountNo(db.getAccountTB().size() + 1);
         db.addAccount(tmp);
+        int after = db.getAccountTB().size();
+        if(after > before){
+            return true;
+        }
         return false;
     }
     

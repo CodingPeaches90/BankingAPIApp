@@ -9,19 +9,30 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author chris_xtx7ln9
+ * @author Christopher Kambayi
+ * @author Jordan May
  */
+
 @XmlRootElement
 public class Account {
     
+    /**
+    * Account variables
+    */
     private int accountNo;
     private int customerID;
     private String accountType;
     private float balance;
 
+    /**
+    * Constructor
+    */
     public Account() {
     }
 
+    /**
+    * Constructor
+    */
     public Account(int accountNo, int customerID, String accountType, float balance) {
         this.accountNo = accountNo;
         this.customerID = customerID;
@@ -29,6 +40,9 @@ public class Account {
         this.balance = balance;
     }
 
+    /**
+    * Getters and setters
+    */
     public int getAccountNo() {
         return accountNo;
     }

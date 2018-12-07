@@ -10,12 +10,17 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author chris_xtx7ln9
+ * @author Christopher Kambayi
+ * @author Jordan May
+ * 
  */
 
 @XmlRootElement
 public class Transaction {
     
+    /**
+    * Variables
+    */
     private int transactionID;
     private Date transactionDate;
     private int transactionFrom;
@@ -26,10 +31,16 @@ public class Transaction {
     private String phNo;
     private Date debitDate;
 
+    /**
+    * Constructor
+    */
     public Transaction() {
         this.transactionDate = new Date();
     }
 
+    /**
+    * Loaded constructor
+    */
     public Transaction(int transactionID, Date transactionDate, int transactionFrom, int transactionTo, long amount, String message) {
         this.transactionID = transactionID;
         this.transactionDate = transactionDate;
@@ -39,6 +50,9 @@ public class Transaction {
         this.message = message;
     }
 
+    /**
+    * Getters and setters
+    */
     public int getTransactionID() {
         return transactionID;
     }

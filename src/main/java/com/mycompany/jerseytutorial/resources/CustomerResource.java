@@ -26,9 +26,9 @@ public class CustomerResource{
     CustomerService cs = new CustomerService();
     AccountService as = new AccountService();
     
-    /* Get All Customers */
-  
-    /* Get Customer by Id */
+    /**
+    * Get Customer by Id
+    */
     @GET
     @Path("/{id}")
     public Customer getCustomerByID(@PathParam("id") int id){
@@ -36,7 +36,9 @@ public class CustomerResource{
         return cs.getCustomerByUID(id);
     }
     
-    /* Create Customer */
+    /**
+    * Create Customer 
+    */
     @POST
     @Path("/create")
     @Produces(MediaType.APPLICATION_JSON)
@@ -49,7 +51,9 @@ public class CustomerResource{
         }
     }
     
-    /* Update Customer Details*/
+    /**
+    * Update Customer Details
+    */
     @PUT
     @Path("/update")
     @Produces(MediaType.APPLICATION_JSON)
@@ -62,7 +66,9 @@ public class CustomerResource{
         }
     }
     
-    /* Delete Customer */
+    /**
+    * Delete Customer
+    */
     @POST
     @Path("/delete")
     @Produces(MediaType.APPLICATION_JSON)

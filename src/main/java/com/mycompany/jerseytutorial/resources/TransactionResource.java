@@ -26,17 +26,24 @@ import javax.ws.rs.core.MediaType;
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class TransactionResource {
-    /*   */
+
+    /**
+    * Transaction Service
+    */
     TransactionService tr = new TransactionService();
     
-    /* Get Transaction */
+    /**
+    * Get Transaction
+    */
     @GET
     public List<Transaction> getTransactions(){
         System.out.println("Success: Got all transactions");
         return tr.getAllTransactions();
     }
     
-    /* Get Transaction by account */
+    /**
+    * Get Transaction by account
+    */
     @GET
     @Path("/account/{accNo}")
     @Produces(MediaType.APPLICATION_JSON)
@@ -45,7 +52,9 @@ public class TransactionResource {
         return tr.getTransactionsByAcc(accNo);
     }
     
-    /* Create Transaction */
+    /**
+    * Create Transaction
+    */
     @POST
     @Path("/create")
     @Consumes(MediaType.APPLICATION_JSON)
@@ -58,7 +67,9 @@ public class TransactionResource {
         }
     }
     
-    /* Create Derict Debit */
+    /**
+    * Create Direct Debit
+    */
     @POST
     @Path("/create/directdebit")
     @Consumes(MediaType.APPLICATION_JSON)
@@ -71,7 +82,9 @@ public class TransactionResource {
         }
     }
     
-    /* Create Mobile Top Up */
+    /**
+    * Create Mobile Top Up
+    */
     @POST
     @Path("/create/mobiletopup")
     @Produces(MediaType.APPLICATION_JSON)
@@ -84,7 +97,9 @@ public class TransactionResource {
         }
     }
     
-    /* GET Derict Debit */
+    /**
+    * GET Direct Debit
+    */
     @GET
     @Path("/directdebit/{accNo}")
     @Produces(MediaType.APPLICATION_JSON)
@@ -93,7 +108,9 @@ public class TransactionResource {
         return tr.getDirectDebit(accNo);
     }
     
-    /* GET Mobile Top Up */
+    /**
+    * GET Mobile Top Up
+    */
     @GET
     @Path("/mobiletopup/{accNo}")
     @Produces(MediaType.APPLICATION_JSON)

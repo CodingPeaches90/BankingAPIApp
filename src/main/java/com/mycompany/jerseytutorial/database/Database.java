@@ -14,21 +14,29 @@ import java.util.List;
 
 /**
  *
- * @author chris_xtx7ln9
+ * @author Christopher Kambayi
+ * @author Jordan May
+ * 
  */
 
 public class Database {
     
+/**
+* Mock database made up of ArrayLists
+*/
     private static List<Customer> customerTB = new ArrayList<>(); 
     private static List<Account> accountTB = new ArrayList<>(); 
     private static List<Transaction> transactionTB = new ArrayList<>(); 
     
     public static boolean init = true;
 
+    /**
+    * Constructor for database with mock data in Arraylists
+    */
     public Database() {
         if(init){
-            Customer c1 = new Customer("Jordan", "May", "BollyWood", "w234", 1234 , 1);
-            Customer c2 = new Customer("Christopher", "Kambayi", "Santry", "e344", 342 , 2);
+            Customer c1 = new Customer("Jordan", "May", "BollyWood", "w234", "1234" , 1);
+            Customer c2 = new Customer("Christopher", "Kambayi", "Santry", "e344", "342" , 2);
 
             customerTB.add(c1);
             customerTB.add(c2);
@@ -77,6 +85,9 @@ public class Database {
         }
     }
 
+    /**
+    * Getters
+    */
     public static List<Customer> getCustomerTB() {
         return customerTB;
     }
@@ -89,27 +100,62 @@ public class Database {
         return transactionTB;
     }
     
+    /**
+    * Method to add Customer to Customer Database
+    */
     public static boolean addCustomer(Customer c){
+        int before = customerTB.size();
         c.setCustomerUID(customerTB.size() + 1);
         customerTB.add(c);
         System.out.println("Size= " + customerTB.size());
-        return true;
+        int after = customerTB.size();
+        
+        if(after > before){
+            return true;
+        }
+        else{
+          return false;  
+        }
     }
     
+    /**
+    * Method to add Account to Account Database
+    */
     public static boolean addAccount(Account a){
+        int before = accountTB.size();
         accountTB.add(a);
         System.out.println("Size= " + accountTB.size());
-        return true;
+        int after = customerTB.size();
+        
+        if(after > before){
+            return true;
+        }
+        else{
+          return false;  
+        }
     }
     
+    /**
+    * Method to add Transaction to Transaction Database
+    */
     public static boolean addTransaction(Transaction t){
+        int before = transactionTB.size();
         t.setTransactionID(transactionTB.size() + 1);
         transactionTB.add(t);
         System.out.println("Size= " + transactionTB.size());
-        return true;
+        int after = customerTB.size();
+        
+        if(after > before){
+            return true;
+        }
+        else{
+          return false;  
+        }
     }
     
-    /* Update Customer details on DB */
+    /**
+    * Update Customer details on DB
+    */
     public static boolean updateCustomer(Customer t){
         int index = 0;
         for(Customer tempc : customerTB){  
@@ -124,7 +170,9 @@ public class Database {
         return false;
     }
     
-    /* Delete Customer from DB */
+    /**
+    * Delete Customer from DB
+    */
     public static boolean deleteCustomer(Customer t){
         int index = 0;
         for(Customer tempc : customerTB){  
@@ -137,7 +185,9 @@ public class Database {
         return false;
     }
     
-    /* Delete Account from DB*/
+    /**
+    * Delete Account from DB
+    */
     public static boolean deleteAccount(Account a){
         int index = 0;
         for(Account tempa : accountTB){  

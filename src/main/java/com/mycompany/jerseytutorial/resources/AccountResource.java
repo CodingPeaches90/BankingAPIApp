@@ -24,10 +24,14 @@ import javax.ws.rs.core.MediaType;
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 public class AccountResource {
-    /**/
+    /**
+    * Account service
+    */
     AccountService ar = new AccountService();
     
-    /* Get Account by AccNo */
+    /**
+    * Get Account by AccNo
+    */
     @GET
     @Path("/accountNumber/{accNo}")
     public Account getAccountByNo(@PathParam("accNo") int accNo){
@@ -35,7 +39,9 @@ public class AccountResource {
         return ar.getAccountByNumber(accNo);
     }
     
-    /* Get Account by UID */
+    /**
+    * Get Account by UID
+    */
     @GET
     @Path("/uid/{uid}")
     public Account getAccountByUID(@PathParam("uid") int uid){
@@ -43,7 +49,9 @@ public class AccountResource {
         return ar.getAccountByUID(uid);
     }
     
-    /* Get Account balance */
+    /**
+    * Get Account balance
+    */
     @GET
     @Path("/balance/{accNo}")
     public void getAccountBalance(@PathParam("accNo") int accNo){
@@ -51,7 +59,9 @@ public class AccountResource {
         System.out.println("Balance for "+accNo+" is = "+ bal);
     }
     
-    /* Create Account */
+    /**
+    * Create Account
+    */
     @POST
     @Path("/create")
     public void createAccount(Account c){
@@ -62,8 +72,10 @@ public class AccountResource {
             System.out.println("FAIL: Account not created!");
         }
     }
-    
-    /* Create Account */
+   
+    /**
+    * Create Account
+    */
     @POST
     @Path("/delete")
     public void deleteAccount(Account c){

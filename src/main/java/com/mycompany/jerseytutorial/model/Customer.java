@@ -21,13 +21,13 @@ public class Customer
     private String customerLName;
     private String customerAddress;
     private String customerPPSN;
-    private int customerSortCode;
+    private String customerSortCode;
     private int customerUID;
     private Date customerJoinedDate;
     
     public Customer() {}
     
-    public Customer(String customerFName, String customerLName, String customerAddress, String customerPPSN, int customerSortCode,int customerUID)
+    public Customer(String customerFName, String customerLName, String customerAddress, String customerPPSN, String customerSortCode,int customerUID)
     {
         this.customerFName = customerFName;
         this.customerLName = customerLName;
@@ -54,7 +54,7 @@ public class Customer
         return customerPPSN;
     }
 
-    public int getCustomerSortCode() {
+    public String getCustomerSortCode() {
         return customerSortCode;
     }
 
@@ -78,7 +78,7 @@ public class Customer
         this.customerPPSN = customerPPSN;
     }
 
-    public void setCustomerSortCode(int customerSortCode) {
+    public void setCustomerSortCode(String customerSortCode) {
         this.customerSortCode = customerSortCode;
     }
 

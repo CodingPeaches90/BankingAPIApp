@@ -14,8 +14,8 @@ import java.util.List;
 
 /**
  *
- * @author Christopher Kambayi
  * @author Jordan May
+ * @author Christopher Kambayi
  * 
  */
 
@@ -141,18 +141,18 @@ public class Database {
     * Method to add Transaction to Transaction Database
     */
     public static boolean addTransaction(Transaction t){
+        System.out.println("Before Size= " + transactionTB.size());
         int before = transactionTB.size();
         t.setTransactionID(transactionTB.size() + 1);
         transactionTB.add(t);
-        System.out.println("Size= " + transactionTB.size());
+        System.out.println("After Size= " + transactionTB.size());
         int after = customerTB.size();
         
         if(after > before){
             return true;
         }
-        else{
-          return false;  
-        }
+        
+        return false;  
     }
     
     /**

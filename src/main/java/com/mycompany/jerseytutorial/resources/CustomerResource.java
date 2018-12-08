@@ -16,7 +16,8 @@ import javax.ws.rs.core.MediaType;
 
 /**
  *
- * @author jordanmay
+ * @author Jordan May
+ * 
  */
 
 @Path("/customer")
@@ -29,6 +30,9 @@ public class CustomerResource{
     
     /**
     * Get Customer by Id
+    * URL: http://localhost:49000/api/customer/{id}
+    * 
+    * Example: http://localhost:49000/api/customer/2
     */
     @GET
     @Path("/{id}")
@@ -39,6 +43,7 @@ public class CustomerResource{
     
     /**
     * Create Customer 
+    * URL: http://localhost:49000/api/customer/create
     */
     @POST
     @Path("/create")
@@ -54,6 +59,7 @@ public class CustomerResource{
     
     /**
     * Update Customer Details
+    * URL: http://localhost:49000/api/customer/update
     */
     @PUT
     @Path("/update")
@@ -69,6 +75,7 @@ public class CustomerResource{
     
     /**
     * Delete Customer
+    * URL: http://localhost:49000/api/customer/delete
     */
     @DELETE
     @Path("/delete")

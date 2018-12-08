@@ -9,8 +9,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author Christopher Kambayi
  * @author Jordan May
+ * 
  */
 
 @XmlRootElement

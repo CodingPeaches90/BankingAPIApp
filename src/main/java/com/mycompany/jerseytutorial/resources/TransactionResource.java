@@ -18,7 +18,7 @@ import javax.ws.rs.core.MediaType;
 
 /**
  *
- * @author Christopher Kambayi
+ * @author Jordan May
  * 
  */
 
@@ -34,6 +34,7 @@ public class TransactionResource {
     
     /**
     * Get Transaction
+    * URL: http://localhost:49000/api/transaction
     */
     @GET
     public List<Transaction> getTransactions(){
@@ -43,6 +44,9 @@ public class TransactionResource {
     
     /**
     * Get Transaction by account
+    * URL: http://localhost:49000/api/transaction/account/{accNo}
+    * 
+    * Example: http://localhost:49000/api/transaction/123
     */
     @GET
     @Path("/account/{accNo}")
@@ -54,6 +58,7 @@ public class TransactionResource {
     
     /**
     * Create Transaction
+    * URL: http://localhost:49000/api/transaction/create
     */
     @POST
     @Path("/create")
@@ -69,6 +74,7 @@ public class TransactionResource {
     
     /**
     * Create Direct Debit
+    * URL: http://localhost:49000/api/transaction/create/directdebit
     */
     @POST
     @Path("/create/directdebit")
@@ -84,6 +90,7 @@ public class TransactionResource {
     
     /**
     * Create Mobile Top Up
+    * URL: http://localhost:49000/api/transaction/create/mobiletopup
     */
     @POST
     @Path("/create/mobiletopup")
@@ -99,6 +106,9 @@ public class TransactionResource {
     
     /**
     * GET Direct Debit
+    * URL: http://localhost:49000/api/transaction/directdebit/{accNo}
+    * 
+    * Example: http://localhost:49000/api/transaction/directdebit/123
     */
     @GET
     @Path("/directdebit/{accNo}")
@@ -110,6 +120,9 @@ public class TransactionResource {
     
     /**
     * GET Mobile Top Up
+    * URL: http://localhost:49000/api/transaction/mobiletopup/{accNo}
+    * 
+    * Example: http://localhost:49000/api/transaction/123
     */
     @GET
     @Path("/mobiletopup/{accNo}")

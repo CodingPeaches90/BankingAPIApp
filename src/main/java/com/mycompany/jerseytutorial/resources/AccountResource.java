@@ -18,7 +18,8 @@ import javax.ws.rs.core.MediaType;
 
 /**
  *
- * @author Christopher Kambayi
+ * @author Jordan May
+ * 
  */
 
 @Path("/account")
@@ -32,6 +33,9 @@ public class AccountResource {
     
     /**
     * Get Account by AccNo
+    * URL: http://localhost:49000/api/account/accountNumber/{accNo}
+    * 
+    * Example: http://localhost:49000/api/account/accountNumber/123
     */
     @GET
     @Path("/accountNumber/{accNo}")
@@ -42,6 +46,9 @@ public class AccountResource {
     
     /**
     * Get Account by UID
+    * URL: http://localhost:49000/api/account/uid/{uid}
+    * 
+    * Example: http://localhost:49000/api/account/uid/1
     */
     @GET
     @Path("/uid/{uid}")
@@ -52,6 +59,9 @@ public class AccountResource {
     
     /**
     * Get Account balance
+    * URL: http://localhost:49000/api/account/balance/{accNo}
+    * 
+    * Example: http://localhost:49000/api/account/balance/124
     */
     @GET
     @Path("/balance/{accNo}")
@@ -63,6 +73,7 @@ public class AccountResource {
     
     /**
     * Create Account
+    * URL: http://localhost:49000/api/account/create
     */
     @POST
     @Path("/create")
@@ -76,7 +87,8 @@ public class AccountResource {
     }
    
     /**
-    * Create Account
+    * Delete Account
+    * URL: http://localhost:49000/api/account/delete
     */
     @DELETE
     @Path("/delete")
@@ -91,6 +103,9 @@ public class AccountResource {
     
     /**
     * Lodge
+    * URL: http://localhost:49000/api/account/lodge/{accNo}/{amount}
+    * 
+    * Example: http://localhost:49000/api/account/124/500
     */
     @POST
     @Path("/lodge/{accNo}/{amount}")
@@ -105,6 +120,9 @@ public class AccountResource {
     
     /**
     * Withdraw
+    * URL: http://localhost:49000/api/account/withdraw/{accNo}/{amount}
+    * 
+    * Example: http://localhost:49000/api/account/withdraw/123/980
     */
     @POST
     @Path("/withdraw/{accNo}/{amount}")
@@ -119,6 +137,9 @@ public class AccountResource {
     
     /**
     * Transfer
+    * URL: http://localhost:49000/api/account/transfer/{accFrom}/{accTo}/{amount}
+    * 
+    * Example: http://localhost:49000/api/account/transfer/123/124/554.21
     */
     @POST
     @Path("/transfer/{accFrom}/{accTo}/{amount}")
